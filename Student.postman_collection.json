@@ -1,0 +1,466 @@
+{
+	"info": {
+		"_postman_id": "3ec02f84-adad-4d1c-a6a2-d2880863bff2",
+		"name": "Student",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28129186"
+	},
+	"item": [
+		{
+			"name": "Get Single Student Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"    pm.response.to.have.status(200); \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-type header is present\", () => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"Content-Type header is applications/json\", () =>{\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql\r",
+							"    ('application/json; charset=utf-8');\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Cookie 'language' is present\", () => {\r",
+							"    pm.expect(pm.cookies.has('language')).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cookies language has value 1\", () => {\r",
+							"    pm.expect(pm.cookies.get('language')).to.eql('en-gb')\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is less then 50ms\", () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(50);\r",
+							"});\r",
+							"\r",
+							"//test array have correct datatypes\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"    pm.expect(jsonData).to.be.an(\"object\");\r",
+							"    pm.expect(jsonData.name).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.location).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.phone).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.id).to.be.a(\"number\");\r",
+							"    pm.expect(jsonData.courses).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"//test array contents in body\r",
+							"pm.test(\"Test array properties\", () =>{\r",
+							"    //pm.expect(jsonData.courses).to.include(\"API\");\r",
+							"    pm.expect(jsonData.courses).to.have.members([\"API\", \"Maven\"]);\r",
+							"});\r",
+							"\r",
+							"//Validating JSON fields in Response \r",
+							"pm.test(\"values of all fields in Response\", () => {\r",
+							"    pm.expect(jsonData.id).to.eql(2);\r",
+							"    pm.expect(jsonData.name).to.eql(\"Pawan\");\r",
+							"    pm.expect(jsonData.location).to.eql(\"Hydrabad\");\r",
+							"    pm.expect(jsonData.phone).to.eql(\"123456098\");\r",
+							"    pm.expect(jsonData.courses[0]).to.eql(\"API\");\r",
+							"    pm.expect(jsonData.courses[1]).to.eql(\"Maven\");\r",
+							"});\r",
+							"\r",
+							"var schema={\r",
+							"    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\r",
+							"    \"$ref\": \"#/definitions/Welcome8\",\r",
+							"    \"definitions\": {\r",
+							"        \"Welcome8\": {\r",
+							"            \"type\": \"object\",\r",
+							"            \"additionalProperties\": true,\r",
+							"            \"properties\": {\r",
+							"                \"id\": {\r",
+							"                    \"type\": \"integer\"\r",
+							"                },\r",
+							"                \"name\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"location\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"phone\": {\r",
+							"                    \"type\": \"string\",\r",
+							"                    \"format\": \"integer\"\r",
+							"                },\r",
+							"                \"courses\": {\r",
+							"                    \"type\": \"array\",\r",
+							"                    \"items\": {\r",
+							"                        \"type\": \"string\"\r",
+							"                    }\r",
+							"                }\r",
+							"            },\r",
+							"            \"required\": [\r",
+							"                \"courses\",\r",
+							"                \"id\",\r",
+							"                \"location\",\r",
+							"                \"name\",\r",
+							"                \"phone\"\r",
+							"            ],\r",
+							"        }\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Schema is valid\", () =>{\r",
+							"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/student/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"student",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Student Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", () => {\r",
+							"    pm.response.to.have.status(201); \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-type header is present\", () => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"Content-Type header is applications/json\", () =>{\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql\r",
+							"    ('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cookie 'language' is present\", () => {\r",
+							"    pm.expect(pm.cookies.has('language')).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cookies language has value 1\", () => {\r",
+							"    pm.expect(pm.cookies.get('language')).to.eql('en-gb')\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is less then 50ms\", () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(50);\r",
+							"});\r",
+							"\r",
+							"//test array have correct datatypes\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"    pm.expect(jsonData).to.be.an(\"object\");\r",
+							"    pm.expect(jsonData.name).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.location).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.phone).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.id).to.be.a(\"number\");\r",
+							"    pm.expect(jsonData.courses).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"//test array contents in body\r",
+							"pm.test(\"Test array properties\", () =>{\r",
+							"    pm.expect(jsonData.courses).to.include(\"API\");\r",
+							"    pm.expect(jsonData.courses).to.have.members([ \"API\", \"Maven\"]);\r",
+							"});\r",
+							"\r",
+							"//Validating JSON fields in Response \r",
+							"pm.test(\"values of all fields in Response\", () => {\r",
+							"    pm.expect(jsonData.id).to.eql(6);\r",
+							"    pm.expect(jsonData.name).to.eql(\"Pawan\");\r",
+							"    pm.expect(jsonData.location).to.eql(\"Hydrabad\");\r",
+							"    pm.expect(jsonData.phone).to.eql(\"123456098\");\r",
+							"    pm.expect(jsonData.courses[0]).to.eql(\"API\");\r",
+							"    pm.expect(jsonData.courses[1]).to.eql(\"Maven\");\r",
+							"});\r",
+							"\r",
+							"var schema={\r",
+							"    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\r",
+							"    \"$ref\": \"#/definitions/Welcome8\",\r",
+							"    \"definitions\": {\r",
+							"        \"Welcome8\": {\r",
+							"            \"type\": \"object\",\r",
+							"            \"additionalProperties\": true,\r",
+							"            \"properties\": {\r",
+							"                \"id\": {\r",
+							"                    \"type\": \"integer\"\r",
+							"                },\r",
+							"                \"name\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"location\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"phone\": {\r",
+							"                    \"type\": \"string\",\r",
+							"                    \"format\": \"integer\"\r",
+							"                },\r",
+							"                \"courses\": {\r",
+							"                    \"type\": \"array\",\r",
+							"                    \"items\": {\r",
+							"                        \"type\": \"string\"\r",
+							"                    }\r",
+							"                }\r",
+							"            },\r",
+							"            \"required\": [\r",
+							"                \"courses\",\r",
+							"                \"id\",\r",
+							"                \"location\",\r",
+							"                \"name\",\r",
+							"                \"phone\"\r",
+							"            ],\r",
+							"        }\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Schema is valid\", () =>{\r",
+							"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Pawan\",\r\n        \"location\": \"Hydrabad\",\r\n        \"phone\": \"123456098\",\r\n        \"courses\": [\r\n            \"API\",\r\n            \"Maven\"\r\n        ],\r\n    \"Langauge\":\"en-gb\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update the Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"    pm.response.to.have.status(200); \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-type header is present\", () => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"Content-Type header is applications/json\", () =>{\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql\r",
+							"    ('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cookie 'language' is present\", () => {\r",
+							"    pm.expect(pm.cookies.has('language')).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cookies language has value 1\", () => {\r",
+							"    pm.expect(pm.cookies.get('language')).to.eql('en-gb');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is less then 50ms\", () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(50);\r",
+							"});\r",
+							"\r",
+							"//test array have correct datatypes\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"    pm.expect(jsonData).to.be.an(\"object\");\r",
+							"    pm.expect(jsonData.name).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.location).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.phone).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.id).to.be.a(\"number\");\r",
+							"    pm.expect(jsonData.courses).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"//test array contents in body\r",
+							"pm.test(\"Test array properties\", () =>{\r",
+							"    //pm.expect(jsonData.courses).to.include(\"API\");\r",
+							"    pm.expect(jsonData.courses).to.have.members([\"API\", \"Maven\"]);\r",
+							"});\r",
+							"\r",
+							"//Validating JSON fields in Response \r",
+							"pm.test(\"values of all fields in Response\", () => {\r",
+							"    pm.expect(jsonData.id).to.eql(3);\r",
+							"    pm.expect(jsonData.name).to.eql(\"Pream\");\r",
+							"    pm.expect(jsonData.location).to.eql(\"Pune\");\r",
+							"    pm.expect(jsonData.phone).to.eql(\"123454554\");\r",
+							"    pm.expect(jsonData.courses[0]).to.eql(\"API\");\r",
+							"    pm.expect(jsonData.courses[1]).to.eql(\"Maven\");\r",
+							"});\r",
+							"\r",
+							"var schema={\r",
+							"    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\r",
+							"    \"$ref\": \"#/definitions/Welcome8\",\r",
+							"    \"definitions\": {\r",
+							"        \"Welcome8\": {\r",
+							"            \"type\": \"object\",\r",
+							"            \"additionalProperties\": false,\r",
+							"            \"properties\": {\r",
+							"                \"id\": {\r",
+							"                    \"type\": \"integer\"\r",
+							"                },\r",
+							"                \"name\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"location\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"phone\": {\r",
+							"                    \"type\": \"string\",\r",
+							"                    \"format\": \"integer\"\r",
+							"                },\r",
+							"                \"courses\": {\r",
+							"                    \"type\": \"array\",\r",
+							"                    \"items\": {\r",
+							"                        \"type\": \"string\"\r",
+							"                    }\r",
+							"                }\r",
+							"            },\r",
+							"            \"required\": [\r",
+							"                \"courses\",\r",
+							"                \"id\",\r",
+							"                \"location\",\r",
+							"                \"name\",\r",
+							"                \"phone\"\r",
+							"            ],\r",
+							"        }\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Schema is valid\", () =>{\r",
+							"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Pream\",\r\n    \"location\":\"Pune\",\r\n    \"phone\":\"123454554\",\r\n    \"courses\":[\"API\",\"Maven\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/student/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"student",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"    pm.expect (pm.response.code).to.be.oneOf([200,404]);\r",
+							"     \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-type header is present\", () => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"Content-Type header is applications/json\", () =>{\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql\r",
+							"    ('application/json; charset=utf-8');\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Cookie 'language' is present\", () => {\r",
+							"    pm.expect(pm.cookies.has('language')).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cookies language has value 1\", () => {\r",
+							"    pm.expect(pm.cookies.get('Currency')).to.eql('USD')\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is more then 10ms\", () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.above(10);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/student/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"student",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

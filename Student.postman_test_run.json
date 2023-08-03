@@ -1,0 +1,338 @@
+{
+	"id": "de63a3a9-b917-429f-9d2c-58695dd9f855",
+	"name": "Student",
+	"timestamp": "2023-07-24T12:03:09.822Z",
+	"collection_id": "28129186-3ec02f84-adad-4d1c-a6a2-d2880863bff2",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 35,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-07-24T12:03:09.090Z",
+	"totalFail": 1,
+	"results": [
+		{
+			"id": "7f72b98a-b470-4dee-8d3b-4215fef67563",
+			"name": "Get Single Student Data",
+			"url": "http://localhost:3000/student/2",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-type header is present": true,
+				"Content-Type header is applications/json": true,
+				"Cookie 'language' is present": true,
+				"Cookies language has value 1": true,
+				"Response is less then 50ms": true,
+				"Test data type of the response": true,
+				"Test array properties": true,
+				"values of all fields in Response": true,
+				"Schema is valid": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-type header is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is applications/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cookie 'language' is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cookies language has value 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is less then 50ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test data type of the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test array properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"values of all fields in Response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-type header is present": true,
+					"Content-Type header is applications/json": true,
+					"Cookie 'language' is present": true,
+					"Cookies language has value 1": true,
+					"Response is less then 50ms": true,
+					"Test data type of the response": true,
+					"Test array properties": true,
+					"values of all fields in Response": true,
+					"Schema is valid": true
+				}
+			]
+		},
+		{
+			"id": "dad0c1cc-f799-4bb3-873f-38fc6b4e29b1",
+			"name": "Create New Student Data",
+			"url": "http://localhost:3000/student",
+			"time": 11,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Content-type header is present": true,
+				"Content-Type header is applications/json": true,
+				"Cookie 'language' is present": true,
+				"Cookies language has value 1": true,
+				"Response is less then 50ms": true,
+				"Test data type of the response": true,
+				"Test array properties": true,
+				"values of all fields in Response": true,
+				"Schema is valid": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-type header is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is applications/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cookie 'language' is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cookies language has value 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is less then 50ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test data type of the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test array properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"values of all fields in Response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Content-type header is present": true,
+					"Content-Type header is applications/json": true,
+					"Cookie 'language' is present": true,
+					"Cookies language has value 1": true,
+					"Response is less then 50ms": true,
+					"Test data type of the response": true,
+					"Test array properties": true,
+					"values of all fields in Response": true,
+					"Schema is valid": true
+				}
+			]
+		},
+		{
+			"id": "3d52e11b-dd1a-4822-a97d-5b55df3537f1",
+			"name": "Update the Data",
+			"url": "http://localhost:3000/student/3",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-type header is present": true,
+				"Content-Type header is applications/json": true,
+				"Cookie 'language' is present": true,
+				"Cookies language has value 1": true,
+				"Response is less then 50ms": true,
+				"Test data type of the response": true,
+				"Test array properties": true,
+				"values of all fields in Response": true,
+				"Schema is valid": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-type header is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is applications/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cookie 'language' is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cookies language has value 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is less then 50ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test data type of the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test array properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"values of all fields in Response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-type header is present": true,
+					"Content-Type header is applications/json": true,
+					"Cookie 'language' is present": true,
+					"Cookies language has value 1": true,
+					"Response is less then 50ms": true,
+					"Test data type of the response": true,
+					"Test array properties": true,
+					"values of all fields in Response": true,
+					"Schema is valid": true
+				}
+			]
+		},
+		{
+			"id": "d40bd808-8c39-4579-b02f-1d91a276b1fc",
+			"name": "Delete Data",
+			"url": "http://localhost:3000/student/5",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-type header is present": true,
+				"Content-Type header is applications/json": true,
+				"Cookie 'language' is present": true,
+				"Cookies language has value 1": true,
+				"Response is more then 10ms": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-type header is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is applications/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cookie 'language' is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cookies language has value 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is more then 10ms": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-type header is present": true,
+					"Content-Type header is applications/json": true,
+					"Cookie 'language' is present": true,
+					"Cookies language has value 1": true,
+					"Response is more then 10ms": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 51,
+	"collection": {
+		"requests": [
+			{
+				"id": "7f72b98a-b470-4dee-8d3b-4215fef67563",
+				"method": "GET"
+			},
+			{
+				"id": "dad0c1cc-f799-4bb3-873f-38fc6b4e29b1",
+				"method": "POST"
+			},
+			{
+				"id": "3d52e11b-dd1a-4822-a97d-5b55df3537f1",
+				"method": "PUT"
+			},
+			{
+				"id": "d40bd808-8c39-4579-b02f-1d91a276b1fc",
+				"method": "DELETE"
+			}
+		]
+	}
+}
